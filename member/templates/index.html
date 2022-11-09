@@ -13,8 +13,8 @@
 
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
   </head>
-
   <body>
+
     <nav class="navbar navbar-dark bg-mynav">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">My App</a>
@@ -23,12 +23,48 @@
 
     <div class="container">
       <div class="d-flex bd-highlight mb-3">
-        <div class="me-auto p-2 bd-highlight"><h2>Users</div>
-        <div class="p-2 bd-highlight">
-          <button type="button" class="btn btn-secondary" onclick=location.href="/memb">Create</button>
-        </div>
+        <div class="me-auto p-2 bd-highlight"><h2>Enter Details</div>
       </div>
 
+      
+      <form method="POST" class="post-form" action="/memb">  
+              {% csrf_token %}  
+      <br>  
+          <div class="form-group row">  
+          <label class="col-sm-2 col-form-label">Member Id:</label>  
+          <div class="col-sm-4">  
+            {{ form.mId }}  
+          </div>  
+        </div>  
+        <div class="form-group row">  
+          <label class="col-sm-2 col-form-label">Member Name:</label>  
+          <div class="col-sm-4">  
+            {{ form.mName }}  
+          </div>  
+        </div>  
+          <div class="form-group row">  
+          <label class="col-sm-2 col-form-label">Member Email:</label>  
+          <div class="col-sm-4">  
+            {{ form.mEmail }}  
+          </div>  
+        </div>  
+          <div class="form-group row">  
+          <label class="col-sm-2 col-form-label">Member Contact:</label>  
+          <div class="col-sm-4">  
+            {{ form.mContact }}  
+          </div>  
+        </div>  
+          <div class="form-group row">  
+          <label class="col-sm-1 col-form-label"></label>  
+          <div class="col-sm-4">  
+          <button type="submit" class="btn btn-primary">Submit</button>  
+          </div>  
+        </div>  
+      </form>  
+
+
+
+      <!--
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -43,19 +79,19 @@
           <tbody id="mytable">
             {% for member in members %}
             <tr>
-              <td scope="col">{{ member.mId }}</td>
+              <td scope="col">{{ member.mId }}/td>
               <td scope="col">{{ member.mName }}</td>
               <td scope="col">{{ member.mEmail }}</td>
               <td scope="col">{{ member.mContact}}</td>
               <td scope="col">
-                <a href="/edit/{{ member.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
-                <a href="/delete/{{ member.id }}">Delete</a>
+                <a href="/edit/{{ employee.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                <a href="/delete/{{ employee.id }}">Delete</a>
               </td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>

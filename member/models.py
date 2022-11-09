@@ -6,5 +6,6 @@ class Member(models.Model):
     mName = models.CharField(max_length=100)  
     mEmail = models.EmailField()  
     mContact = models.CharField(max_length=15)  
+
     class Meta:  
         db_table = "member"

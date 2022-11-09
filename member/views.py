@@ -33,9 +33,9 @@ def edit(request, id):
     return render(request, 'edit.html', {'member': member})  
 
 
-def update(request, id):  
+def update(request, id):
     member = Member.objects.get(id=id)  
-    form = MemberForm(request.POST, instance=employee)  
+    form = MemberForm(request.POST, instance=member)  
 
     if form.is_valid():
         form.save()
